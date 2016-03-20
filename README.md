@@ -4,12 +4,12 @@
 This is a project to help increase my knowledge of Phoenix.
 
 ## TODO
-* [] Users
-* [] Admin Panel
-* [] Blog posts
-* [] Categories
-* [] Subscribe to categories
-* [] Comments
+* [ ] Users
+* [ ] Admin Panel
+* [ ] Blog posts
+* [ ] Categories
+* [ ] Subscribe to categories
+* [ ] Comments
 
 ## Start Application
 
