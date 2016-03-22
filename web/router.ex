@@ -23,6 +23,8 @@ defmodule BlogPhoenix.Router do
 
     get "/user/signup", UserController, :signup
     post "/user/signup", UserController, :signup_post
+
+    get "/user/logout", UserController, :logout
   end
 
   # Other scopes may use custom stacks.
