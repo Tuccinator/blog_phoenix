@@ -11,10 +11,12 @@ defmodule BlogPhoenix.UserController do
 	def login_post(conn, %{"user" => user_params}) do
 		changeset = User.changeset(%User{}, user_params)
 		try do
-			Repo.get!(User, user_params)
+			Repo.get_by!(User, username: Map.get(user_params, "username"))
 		rescue
 			Ecto.NoResultsError ->
-				render conn, "login.html", changeset: changeset
+				conn
+				|> put_flash(:error, "The username you have entered is invalid.")
+				|> render "login.html", changeset: changeset
 		end
 
 		conn
