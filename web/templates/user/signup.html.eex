@@ -1,0 +1,22 @@
+<%= form_for @changeset, user_path(@conn, :signup_post), fn f -> %>
+
+	<div class="form-group">
+		<%= label f, :username %>
+		<%= text_input f, :username, class: "form-control", placeholder: "Enter username" %>
+		<%= error_tag f, :username %>
+	</div>
+
+	<div class="form-group">
+		<%= label f, :password %>
+		<%= password_input f, :password, class: "form-control", placeholder: "Enter password" %>
+		<%= error_tag f, :password %>
+	</div>
+
+	<div class="form-group">
+		<%= label f, :confirm_password %>
+		<%= password_input f, :confirm_password, class: "form-control", placeholder: "Confirm password" %>
+		<%= error_tag f, :confirm_password %>
+	</div>
+
+	<%= submit "Signup", class: "btn btn-primary" %>
+<% end %>

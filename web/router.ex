@@ -17,6 +17,12 @@ defmodule BlogPhoenix.Router do
     pipe_through :browser # Use the default browser stack
 
     get "/", PageController, :index
+
+    get "/user/login", UserController, :login
+    post "/user/login", UserController, :login_post
+
+    get "/user/signup", UserController, :signup
+    post "/user/signup", UserController, :signup_post
   end
 
   # Other scopes may use custom stacks.
