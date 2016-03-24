@@ -25,6 +25,17 @@ defmodule BlogPhoenix.Router do
     post "/user/signup", UserController, :signup_post
 
     get "/user/logout", UserController, :logout
+
+    get "/post/new", PostController, :new
+    post "/post/new", PostController, :new_post
+
+    get "/post/show/:id", PostController, :show
+  end
+
+  scope "/admin", BlogPhoenix do
+    pipe_through :browser
+
+    get "/", AdminController, :index
   end
 
   # Other scopes may use custom stacks.

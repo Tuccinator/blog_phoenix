@@ -5,6 +5,7 @@ defmodule BlogPhoenix.Repo.Migrations.CreateUser do
     create table(:users) do
       add :username, :string
       add :password, :string
+      add :role, :integer
 
       timestamps
     end

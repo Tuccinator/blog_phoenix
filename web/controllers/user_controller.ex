@@ -38,11 +38,23 @@ defmodule BlogPhoenix.UserController do
 
 	def signup(conn, _params) do
 		changeset = User.changeset(%User{})	
-		render conn, "signup.html", changeset: changeset
+		render(conn, "signup.html", changeset: changeset)
 	end
 
 	def signup_post(conn, %{"user" => user_params}) do
 		changeset = User.changeset(%User{}, user_params)
+
+		if user_params["password"] == "" do
+			conn
+			|> assign(:error, "Please choose a password.")
+			|> render("signup.html", changeset: changeset)
+		end
+
+		if user_params["password"] != user_params["confirm_password"] do
+			conn
+			|> assign(:error, "Password don't match.")
+			|> render("signup.html", changeset: changeset)
+		end
 
 		case Repo.insert(changeset) do
 			{:ok, _user} ->
@@ -51,7 +63,7 @@ defmodule BlogPhoenix.UserController do
 				|> redirect(to: page_path(conn, :index))
 
 			{:error, changeset} ->
-				render conn, "signup.html", changeset: changeset
+				render(conn, "signup.html", changeset: changeset)
 		end
 	end
 

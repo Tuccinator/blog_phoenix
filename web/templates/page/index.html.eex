@@ -1,3 +1,6 @@
-<div class="jumbotron">
-  <p>This is where blog will be.</p>
-</div>
+<%= for post <- @posts do %>
+	<div>
+		<h5><a href="<%= post_path(@conn, :show, post.id) %>"><%= post.title %></a></h5>
+		<p><%= post.body %></p>
+	</div>
+<% end %>

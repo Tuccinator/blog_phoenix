@@ -1,0 +1,15 @@
+<%= form_for @changeset, post_path(@conn, :new_post), fn f -> %>
+	<div class="form-group">
+		<%= label f, :title %>
+		<%= text_input f, :title, class: "form-control", placeholder: "Enter title of post" %>
+		<%= error_tag f, :title %>
+	</div>
+
+	<div class="form-group">
+		<%= label f, :body %>
+		<%= textarea f, :body, class: "form-control", placeholder: "Enter body of post", rows: 16 %>
+		<%= error_tag f, :body %>
+	</div>
+
+	<%= submit "Post", class: "btn btn-primary" %>
+<% end %>

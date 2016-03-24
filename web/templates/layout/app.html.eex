@@ -30,6 +30,7 @@
                     <ul class="nav navbar-nav navbar-right">
                         <li><a href="<%= page_path(@conn, :index) %>">Home</a></li>
                         <%= if Plug.Conn.get_session(@conn, :authenticated) do %>
+                            <li><a href="<%= post_path(@conn, :new) %>">New Post</a></li>
                             <li><a href="#"><%= Plug.Conn.get_session(@conn, :username) %></a></li>
                             <li><a href="<%= user_path(@conn, :logout) %>">Logout</a></li>
                         <% else %>

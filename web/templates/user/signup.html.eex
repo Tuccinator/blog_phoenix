@@ -1,3 +1,5 @@
+<div class="alert alert-danger"><%= assigns[:error] %></div>
+
 <%= form_for @changeset, user_path(@conn, :signup_post), fn f -> %>
 
 	<div class="form-group">

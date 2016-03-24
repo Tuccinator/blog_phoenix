@@ -4,6 +4,7 @@ defmodule BlogPhoenix.User do
   schema "users" do
     field :username, :string
     field :password, :string
+    field :role, :integer
 
     timestamps
   end

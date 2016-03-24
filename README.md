@@ -4,7 +4,7 @@
 This is a project to help increase my knowledge of Phoenix.
 
 ## TODO
-* [ ] Users
+* [x] Users
 * [ ] Admin Panel
 * [ ] Blog posts
 * [ ] Categories
